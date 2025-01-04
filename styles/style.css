@@ -9,12 +9,14 @@ html {
 }
 
 .page {
+  --text-color: #fff;
+  --focus-color: rgb(84, 80, 80);
   display: flex;
   align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
-  color: #fff;
+  color: var(--text-color);
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
@@ -116,8 +118,8 @@ form.search-form {
   width: 100%;
   background-color: transparent;
   border-width: 1px;
-  border-color: #fff transparent;
-  color: #fff;
+  border-color: var(--text-color) transparent; /* при использованиии currentColor появляются белые границы по бокам, потому что color: #fff */
+  color: var(--text-color);
   font-size: inherit;
   font-family: inherit;
   outline: none;
@@ -128,11 +130,11 @@ form.search-form {
 }
 
 .search-form__textfield:active {
-  border: 1px solid #fff;
+  border: 1px solid var(--text-color);
 }
 
 .search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
+  outline: 1px solid var(--text-color);
   border-radius: 0;
   outline-offset: 1px;
 }
@@ -145,12 +147,12 @@ form.search-form {
   font-weight: inherit;
   font-size: inherit;
   color: inherit;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   cursor: pointer;
 }
 
 .button:active {
-  background-color: rgb(84, 80, 80);
+  background-color: var(--focus-color);
 }
 
 .button:hover {
@@ -159,7 +161,7 @@ form.search-form {
 }
 
 .button:focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid var(--text-color);
   outline-offset: 1px;
   border-radius: 0;
 }
@@ -189,7 +191,7 @@ form.search-form {
   justify-content: center;
   width: 19px;
   height: 19px;
-  border: 1px solid white;
+  border: 1px solid var(--text-color);
   margin-right: 5px;
 }
 
@@ -198,11 +200,11 @@ form.search-form {
   width: 15px;
   height: 15px;
   display: block;
-  background-color: #fff;
+  background-color: var(--text-color);
 }
 
 .search-form__label:has(.search-form__checkbox:focus-visible) {
-  outline: 1px solid #fff;
+  outline: 1px solid var(--text-color);
   outline-offset: 1px;
   border-radius: 0;
 }
@@ -216,7 +218,7 @@ form.search-form {
 /* Секция content-details */
 
 .title {
-  font-family: 'Oswald';
+  font-family: 'Oswald', sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 70.5px;
@@ -225,15 +227,13 @@ form.search-form {
 }
 
 .content__accent {
-  color: rgb(84, 80, 80);
+  color: var(--focus-color);
 }
 
 .content__list-container {
   overflow-y: auto;
   max-height: 298px;
-  overflow-x: hidden;
-  padding: 3px 3px;
-  margin: -3px -3px;
+  padding: 3px; /* Сделано для того чтобы было видно outline вокруг элементов focus-visible Иначе outline срезается краями контейнера. margin: -3px был для компенсации отсупов для соответствия макету*/
   position: relative;
 }
 
@@ -259,27 +259,38 @@ form.search-form {
   outline: none;
 }
 
-li:has(.content__card-link:hover) {
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__list-item:has(.content__card-link:hover) {
   text-decoration: underline;
   text-underline-position: under;
 }
 
-li:has(.content__card-link:active) {
-  background-color: rgb(84, 80, 80);
+.content__list-item:has(.content__card-link:active) {
+  background-color: var(--focus-color);
 }
 
-li:has(.content__card-link:focus-visible) {
-  outline: 1px solid #fff;
+.content__list-item:has(.content__card-link:focus-visible) {
+  outline: 1px solid var(--text-color);
   border-radius: 0;
 }
 
+.content__video-card-description-container {
+  max-width: 49%;
+}
+
 .content__video-card-title {
-  font-family: 'Oswald';
+  font-family: 'Oswald', sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 6px;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__video-card-description {
