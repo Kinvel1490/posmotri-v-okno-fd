@@ -9,6 +9,8 @@ html {
 }
 
 .page {
+  display: flex;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -60,9 +62,9 @@ ol {
   width: 1px;
 }
 
-.page {
-  display: flex;
-  align-items: center;
+.preloader { 
+  width: 100%;
+  height: 100%;
 }
 
 /*Результат поиска*/
@@ -81,6 +83,7 @@ ol {
 .result__video-container {
   width: 100%;
   height: 386px;
+  position: relative;
 }
 
 .result__video {
@@ -181,14 +184,13 @@ form.search-form {
 }
 
 .search-form__pseudo-checkbox {
-  width: 19px;
-  height: 19px;
-  display: inline-block;
-  border: 1px solid white;
-  margin-right: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 19px;
+  height: 19px;
+  border: 1px solid white;
+  margin-right: 5px;
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
@@ -199,13 +201,13 @@ form.search-form {
   background-color: #fff;
 }
 
-.search-form__label:has(.search-form__checkbox:focus-visible){
+.search-form__label:has(.search-form__checkbox:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 1px;
   border-radius: 0;
 }
 
-.search-form__submit-button{
+.search-form__submit-button {
   align-self: end;
 }
 
@@ -232,6 +234,7 @@ form.search-form {
   overflow-x: hidden;
   padding: 3px 3px;
   margin: -3px -3px;
+  position: relative;
 }
 
 .content__list-item + .content__list-item {
