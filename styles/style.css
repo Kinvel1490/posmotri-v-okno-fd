@@ -99,7 +99,7 @@ form.search-form {
   display: grid;
   grid-template-columns: 1fr min-content min-content;
   gap: 40px;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .search-form__fieldset {
@@ -118,7 +118,7 @@ form.search-form {
   width: 100%;
   background-color: transparent;
   border-width: 1px;
-  border-color: var(--text-color) transparent; /* при использованиии currentColor появляются белые границы по бокам, потому что color: #fff */
+  border-color: var(--text-color) transparent;
   color: var(--text-color);
   font-size: inherit;
   font-family: inherit;
@@ -222,7 +222,7 @@ form.search-form {
   font-size: 75px;
   font-weight: 700;
   line-height: 70.5px;
-  margin-bottom: 26px;
+  margin-bottom: 25px;
   text-transform: uppercase;
 }
 
@@ -233,7 +233,7 @@ form.search-form {
 .content__list-container {
   overflow-y: auto;
   max-height: 298px;
-  padding: 3px; /* Сделано для того чтобы было видно outline вокруг элементов focus-visible Иначе outline срезается краями контейнера. margin: -3px был для компенсации отсупов для соответствия макету*/
+  padding: 3px; 
   position: relative;
 }
 
@@ -247,7 +247,7 @@ form.search-form {
 }
 
 .content__video-card-thumbnail {
-  width: 198px;
+  width: 194px;
   height: 103px;
   object-fit: cover;
   object-position: center;
@@ -265,7 +265,6 @@ form.search-form {
 
 .content__list-item:has(.content__card-link:hover) {
   text-decoration: underline;
-  text-underline-position: under;
 }
 
 .content__list-item:has(.content__card-link:active) {
