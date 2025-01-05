@@ -232,7 +232,7 @@ form.search-form {
 
 .content__list-container {
   overflow-y: auto;
-  max-height: 298px;
+  height: 298px;
   padding: 3px; 
   position: relative;
 }
