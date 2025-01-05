@@ -144,11 +144,11 @@ form.search-form {
   height: fit-content;
   background-color: transparent;
   font-family: inherit;
-  font-weight: inherit;
   font-size: inherit;
   color: inherit;
   border: 1px solid currentColor;
   cursor: pointer;
+  font-weight: 700;
 }
 
 .button:active {
@@ -259,7 +259,7 @@ form.search-form {
   outline: none;
 }
 
-.content__card-link_current {
+.content__list-item:has(.content__card-link_current) {
   background-color: #545050;
 }
 
